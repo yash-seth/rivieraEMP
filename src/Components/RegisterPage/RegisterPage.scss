@@ -1,0 +1,24 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.RegisterPageContainer {
+    margin: 20px 10px;
+    @include flexRow(center, center);
+    font-family: $font;
+}
+
+#loginView, #registerView {
+    margin: 10px;
+    @include buttonStyle();
+}
+
+#loginView {
+    background-color: rgb(163, 163, 237);
+    padding: 10px 20px;
+    border-radius: 18px;
+}
+
+#registerView {
+    background-color: rgb(237, 191, 163);
+    padding: 10px 20px;
+    border-radius: 18px;
+}

@@ -1,0 +1,31 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.eventsHomePageContainer {
+    margin: 20px 10px;
+    @include flexRow(center, center);
+    font-family: $font;
+    width: 100%;
+}
+
+.events {
+    @include flexColumn(flex-start, center);
+}
+
+.eventDetails {
+    @include flexRow(center, center);
+    margin: 10px 0;
+    background-color: rgb(222, 220, 220);
+    border-radius: 18px;
+    padding: 10px;
+}
+
+#eventName, #eventStartTime, #eventEndTime, #eventCapacity {
+    margin: 0 10px;
+}
+
+#registerEvent {
+    @include buttonStyle();
+    background-color: rgb(167, 235, 122);
+    padding: 10px 20px;
+    border-radius: 18px;
+}

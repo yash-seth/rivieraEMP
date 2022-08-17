@@ -1,0 +1,53 @@
+@import "../../Styles/Variables/Variables.scss";
+
+.eventPageContainer {
+    margin: 20px 10px;
+    @include flexColumn(center, center);
+    font-family: $font;
+    width: 100%;
+}
+
+.eventContainer{
+    @include flexColumn(center, center);
+    background-color: rgb(255, 196, 196);
+    padding: 10px;
+    border-radius: 18px;
+}
+
+.eventTimeDetails{
+    margin-top: 10px;
+    @include flexRow(center, center);
+}
+
+#eventIdStartTime, #eventIdEndTime {
+    margin: 0 10px;
+}
+
+.eventContent{
+    @include flexColumn(center, center);
+}
+
+#eventIdCapacity {
+    margin: 10px 0px;
+}
+
+.eventIdControls{
+    @include flexRow(center, center)
+}
+
+#redirectEvents, #register {
+    margin: 0 10px;
+    @include buttonStyle;
+}
+
+#redirectEvents {
+    background-color: rgb(248, 132, 124);
+    padding: 10px 20px;
+    border-radius: 18px;
+}
+
+#register {
+    background-color: rgb(159, 222, 116);
+    padding: 10px 20px;
+    border-radius: 18px;
+}

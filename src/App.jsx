@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from 'react'
 
 import HomePage from './Components/HomePage/HomePage';
 import RegisterPage from './Components/RegisterPage/RegisterPage';
@@ -9,13 +10,14 @@ import EventPage from './Components/EventPage/EventPage';
 import './App.scss';
 
 function App() {
+  const [mode, setMode] = useState('participant')
   return (
     <>
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<>
               <Navbar />
-              <HomePage />
+              <HomePage setMode={setMode}/>
             </>}/>
             <Route path="/register" element={<>
               <Navbar />
@@ -23,11 +25,11 @@ function App() {
             </>}/>
             <Route path="/events" element={<>
               <Navbar />
-              <EventsHomePage />
+              <EventsHomePage mode={mode}/>
             </>}/>
             <Route path="/events/:eventId" element={<>
               <Navbar />
-              <EventPage />
+              <EventPage mode={mode}/>
             </>}/>
           </Routes>
       </BrowserRouter>

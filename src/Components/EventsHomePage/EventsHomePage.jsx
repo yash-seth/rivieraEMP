@@ -5,7 +5,8 @@ import { events } from "../../dummy-data/dummyData.js"
 
 import "./EventsHomePage.scss"
 
-function EventsHomePage() {
+function EventsHomePage({ mode }) {
+    console.log(mode)
   return (<>
   <div className='eventsHomePageContainer'>
     <div id="eventsHomePageContainerHeader">Events</div>
@@ -19,13 +20,15 @@ function EventsHomePage() {
                             <div id='eventEndTime'>{event.event_end_timestamp}</div>
                             <div id='eventCapacity'>{event.event_capacity}</div>
                             <Link to={`/events/${event.id+1}`} style={{textDecoration:"none", color: "inherit"}}><button id="registerEvent">Register</button></Link>
+                            {mode === "admin" && <button id="deleteEvent"><img id="crossBtn" src={require("../../Assets/images/Cross button.png")} alt="cross btn"/></button>}
                         </div>
                 </>)
         })}
     </div>
     <div className='eventsHomePageControls'>
         <Link to="/register" style={{textDecoration: "none", color: "inherit"}}><button id="redirectEvents">Go Back</button></Link>
-        <Link to={`/events/`} style={{textDecoration: "none", color: "inherit"}}><button id="registeredEvents">View Registered Events</button></Link>
+        {mode === "participant" &&<Link to={`/events/`} style={{textDecoration: "none", color: "inherit"}}><button id="registeredEvents">View Registered Events</button></Link>}
+        {mode === "admin" && <button id="createEvent">Create Event</button>}
     </div>
     </div>
     </>

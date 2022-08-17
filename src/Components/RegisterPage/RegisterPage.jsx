@@ -9,6 +9,7 @@ function RegisterPage() {
       <div className='RegisterPageContainer'>
         <Link to="/events" style={{textDecoration:"none", color: "inherit"}}><button id="loginView">Login</button></Link>
         <Link to="/events" style={{textDecoration:"none", color: "inherit"}}><button id="registerView">Register</button></Link>
+        <Link to="/" style={{textDecoration: "none", color: "inherit"}}><button id="redirectEvents">Go Back</button></Link>
       </div>
     </>
   )

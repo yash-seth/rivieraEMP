@@ -1,7 +1,7 @@
 @import "../../Styles/Variables/Variables.scss";
 
 .eventPageContainer {
-    margin: 20px 10px;
+    margin: 50px 10px;
     @include flexColumn(center, center);
     font-family: $font;
     width: 100%;

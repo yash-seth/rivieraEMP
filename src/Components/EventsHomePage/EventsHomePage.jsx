@@ -8,6 +8,7 @@ import "./EventsHomePage.scss"
 function EventsHomePage() {
   return (<>
   <div className='eventsHomePageContainer'>
+    <div id="eventsHomePageContainerHeader">Events</div>
     <div className='events'>
         {events.map((event)=>{
             return (<>
@@ -21,6 +22,10 @@ function EventsHomePage() {
                         </div>
                 </>)
         })}
+    </div>
+    <div className='eventsHomePageControls'>
+        <Link to="/register" style={{textDecoration: "none", color: "inherit"}}><button id="redirectEvents">Go Back</button></Link>
+        <Link to={`/events/`} style={{textDecoration: "none", color: "inherit"}}><button id="registeredEvents">View Registered Events</button></Link>
     </div>
     </div>
     </>

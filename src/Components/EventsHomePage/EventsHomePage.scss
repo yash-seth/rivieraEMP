@@ -2,9 +2,8 @@
 
 .eventsHomePageContainer {
     margin: 20px 10px;
-    @include flexRow(center, center);
+    @include flexColumn(center, center);
     font-family: $font;
-    width: 100%;
 }
 
 .events {
@@ -28,4 +27,15 @@
     background-color: rgb(167, 235, 122);
     padding: 10px 20px;
     border-radius: 18px;
+}
+
+#eventsHomePageContainerHeader{
+    font-size: 20px;
+}
+
+#registeredEvents{
+    @include buttonStyle();
+    background-color: rgb(147, 225, 251);
+    padding: 10px 20px;
+    border-radius: 18px;   
 }

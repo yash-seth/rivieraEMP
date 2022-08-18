@@ -25,10 +25,10 @@ function App() {
               <Navbar />
               <RegisterPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </>}/>
-            <Route path="/events/:userId" element={<>
+            {/* <Route path="/events/:userId" element={<>
               <Navbar />
               <EventRegPage mode={mode} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-            </>}/>
+            </>}/> */}
             <Route path="/events/:eventId" element={<>
               <Navbar />
               <EventPage mode={mode} currentUser={currentUser} setCurrentUser={setCurrentUser}/>

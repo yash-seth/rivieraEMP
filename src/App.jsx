@@ -8,6 +8,7 @@ import EventsHomePage from './Components/EventsHomePage/EventsHomePage';
 import EventPage from './Components/EventPage/EventPage';
 
 import './App.scss';
+import EventRegPage from "./Components/EventRegPage/EventRegPage";
 
 function App() {
   const [mode, setMode] = useState('participant')
@@ -24,13 +25,17 @@ function App() {
               <Navbar />
               <RegisterPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </>}/>
-            <Route path="/events" element={<>
+            <Route path="/events/:userId" element={<>
               <Navbar />
-              <EventsHomePage mode={mode} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+              <EventRegPage mode={mode} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </>}/>
             <Route path="/events/:eventId" element={<>
               <Navbar />
               <EventPage mode={mode} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+            </>}/>
+            <Route path="/events" element={<>
+              <Navbar />
+              <EventsHomePage mode={mode} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </>}/>
           </Routes>
       </BrowserRouter>

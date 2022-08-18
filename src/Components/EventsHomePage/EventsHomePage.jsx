@@ -81,7 +81,7 @@ function EventsHomePage({ mode, setCurrentUser, currentUser }) {
     </div>
     <div className='eventsHomePageControls'>
         <Link to="/register" style={{textDecoration: "none", color: "inherit"}}><button id="redirectEvents" onClick={() => setCurrentUser(null)}>Log Out</button></Link>
-        {mode === "participant" &&<Link to={`/events/`} style={{textDecoration: "none", color: "inherit"}}><button id="registeredEvents">View Registered Events</button></Link>}
+        {mode === "participant" &&<Link to={`/events/${currentUser}`} style={{textDecoration: "none", color: "inherit"}}><button id="registeredEvents">View Registered Events</button></Link>}
         {mode === "admin" && <button id="createEvent" onClick={()=>setFormView(true)}>Create Event</button>}
     </div>
     {formView && <div className='eventForm'>

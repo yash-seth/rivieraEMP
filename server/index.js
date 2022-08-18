@@ -5,6 +5,7 @@ const app = express();
 
 const eventData = require("./models/rivieraEvents");
 const userData = require("./models/participants");
+const eventRegData = require("./models/eventRegistrations");
 
 app.use(express.json());
 app.use(cors());
@@ -77,6 +78,37 @@ app.post("/verify", (req, res) => {
         console.log(error);
     }
 })
+
+
+//routes for event registration data
+app.post("/addEvent",async (req,res)=>{
+    // console.log(req.body)
+    const event = new eventRegData({event_code: req.body.event_code, userID: req.body.userID});
+
+    try{
+        await event.save();
+        console.log("User inserted");
+    }catch(error){
+        console.log(error);
+    }
+})
+
+app.post("/registeredEvents",async (req,res)=>{
+    console.log(req.body)
+    var registeredEvents = []
+    eventRegData.find({userID: req.body.userID}, (err, result) => {
+        if(err) res.send(err)
+        result.forEach(element => {
+            eventData.find({event_code: element.event_code}, (err, result) => {
+                if(err) res.send(err)
+                res.send(result)
+                registeredEvents.push(result)
+            })
+        });
+    })
+    res.send(registeredEvents)
+})
+
 
 app.listen(3001, ()=>{
     console.log("Server running on port 3001...")

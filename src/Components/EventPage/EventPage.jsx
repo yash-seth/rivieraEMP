@@ -6,7 +6,7 @@ import { useParams, Link} from "react-router-dom"
 
 import "./EventPage.scss"
 
-function EventPage({ mode }) {
+function EventPage({ mode, currentUser, setCurrentUser }) {
     const { eventId } = useParams(); 
     const [formView, setFormView] = useState(false)
     const [name, setName] = useState("");
@@ -20,6 +20,14 @@ function EventPage({ mode }) {
         event_end_timestamp: " ",
         event_capacity: 0,
     })
+
+    const addUserRegistration = async (e) => {
+        e.preventDefault();
+        Axios.post("http://localhost:3001/addEvent", {event_code: eventId, userID: currentUser,
+        }).then(response => {
+          console.log(response)
+        });
+        };
 
     const updateEvent = (e) => {
         Axios.patch(`http://localhost:3001/events/${eventId}`, {event_code: eventId,
@@ -86,7 +94,7 @@ function EventPage({ mode }) {
                     </div>
                     <div className='eventIdControls'>
                         <Link to="/events" style={{textDecoration: "none", color: "inherit"}}><button id="redirectEvents">Go Back</button></Link>
-                        {mode === "participant" ? <Link to="/events" style={{textDecoration: "none", color: "inherit"}}><button id="register" onClick={()=>updateEventRegister(true)}>Register</button></Link> : <button id="register" onClick={()=>setFormView(true)}>Update Event Details</button>}
+                        {mode === "participant" ? <Link to="/events" style={{textDecoration: "none", color: "inherit"}}><button id="register" onClick={(e)=>{updateEventRegister(true);addUserRegistration(e)}}>Register</button></Link> : <button id="register" onClick={()=>setFormView(true)}>Update Event Details</button>}
                     </div>
                 </div>
                 {formView && <div className='eventForm'>

@@ -6,7 +6,7 @@ import Axios from 'axios'
 
 import "./EventsHomePage.scss"
 
-function EventsHomePage({ mode }) {
+function EventsHomePage({ mode, setCurrentUser, currentUser }) {
     const [events, setEvents] = useState([])
     const [formView, setFormView] = useState(false)
     const [code, setCode] = useState("");
@@ -80,7 +80,7 @@ function EventsHomePage({ mode }) {
         })}
     </div>
     <div className='eventsHomePageControls'>
-        <Link to="/register" style={{textDecoration: "none", color: "inherit"}}><button id="redirectEvents">Go Back</button></Link>
+        <Link to="/register" style={{textDecoration: "none", color: "inherit"}}><button id="redirectEvents" onClick={() => setCurrentUser(null)}>Log Out</button></Link>
         {mode === "participant" &&<Link to={`/events/`} style={{textDecoration: "none", color: "inherit"}}><button id="registeredEvents">View Registered Events</button></Link>}
         {mode === "admin" && <button id="createEvent" onClick={()=>setFormView(true)}>Create Event</button>}
     </div>

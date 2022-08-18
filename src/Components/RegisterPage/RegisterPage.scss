@@ -4,6 +4,7 @@
     margin: 20px 10px;
     @include flexRow(center, center);
     font-family: $font;
+    @include flexColumn(center, center)
 }
 
 #loginView, #registerView {
@@ -21,4 +22,27 @@
     background-color: rgb(237, 191, 163);
     padding: 10px 20px;
     border-radius: 18px;
+}
+
+#LogIn {
+    @include buttonStyle();
+    background-color: rgb(239, 132, 216);
+    padding: 10px 20px;
+    border-radius: 18px;
+}
+
+#registerBtn {
+    @include buttonStyle();
+    background-color: rgb(132, 201, 239);
+    padding: 10px 20px;
+    border-radius: 18px;
+}
+
+.loginFormContainer, .registerFormContainer {
+    margin-top: 20px;
+    @include flexColumn(center, center)
+}
+
+#loginFormLabel, #registerFormLabel {
+    margin: 10px 0;
 }

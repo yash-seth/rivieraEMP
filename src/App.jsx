@@ -11,6 +11,7 @@ import './App.scss';
 
 function App() {
   const [mode, setMode] = useState('participant')
+  const [currentUser, setCurrentUser] = useState(null);
   return (
     <>
       <BrowserRouter>
@@ -21,15 +22,15 @@ function App() {
             </>}/>
             <Route path="/register" element={<>
               <Navbar />
-              <RegisterPage />
+              <RegisterPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </>}/>
             <Route path="/events" element={<>
               <Navbar />
-              <EventsHomePage mode={mode}/>
+              <EventsHomePage mode={mode} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </>}/>
             <Route path="/events/:eventId" element={<>
               <Navbar />
-              <EventPage mode={mode}/>
+              <EventPage mode={mode} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </>}/>
           </Routes>
       </BrowserRouter>

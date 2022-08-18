@@ -4,6 +4,7 @@ const cors = require("cors")
 const app = express();
 
 const eventData = require("./models/rivieraEvents");
+const userData = require("./models/participants");
 
 app.use(express.json());
 app.use(cors());
@@ -11,6 +12,8 @@ app.use(cors());
 mongoose.connect('mongodb+srv://yash_seth:easytoremember@cluster0.egbzd.mongodb.net/riviera?retryWrites=true&w=majority', {
     useNewUrlParser: true,
 })
+
+//routes for events collection
 
 app.post("/events",async (req,res)=>{
     console.log(req.body)
@@ -46,17 +49,33 @@ app.delete("/events/:id", async (req,res)=>{
     }).catch(err => console.log(err))
 })
 
-// app.patch('/events/:id', function (req, res) {
-//     console.log(req.body)
-//     var updateObject = req.body;
-//     var id = req.params.id;
-//     eventData.update({event_code  : id}, {$set: updateObject});
-// });
-
 app.patch('/events/:id', (req, res) => {
     eventData.findOneAndUpdate({event_code:req.params.id}, req.body, function (err, event) {
         res.send(event);
       });
+})
+
+//routes for users collection
+
+app.post("/verify", (req, res) => {
+    userData.find({username: req.body.username, password: req.body.password}, (err, result) => {
+        if(err) res.send(err)
+        console.log(result)
+        res.send(result)
+    })
+  });
+
+
+  app.post("/register",async (req,res)=>{
+    console.log(req.body)
+    const event = new userData({username: req.body.username, password: req.body.password});
+
+    try{
+        await event.save();
+        console.log("User inserted");
+    }catch(error){
+        console.log(error);
+    }
 })
 
 app.listen(3001, ()=>{

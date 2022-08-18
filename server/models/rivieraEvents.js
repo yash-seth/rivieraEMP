@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 
 const eventSchema = mongoose.Schema({
+    event_code: {
+        type: String,
+        required: true,
+        unique: true
+    }, 
     event_name: {
         type: String,
         required: true

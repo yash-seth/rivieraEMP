@@ -4,7 +4,6 @@
     margin: 50px 10px;
     @include flexColumn(center, center);
     font-family: $font;
-    width: 100%;
 }
 
 .eventContainer{

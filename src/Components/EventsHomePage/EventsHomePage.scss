@@ -54,3 +54,16 @@
 #deleteEvent{
     @include buttonStyle();   
 }
+
+.eventForm{
+    margin-top: 20px;
+    @include flexColumn(center, center);
+}
+
+#eventFormSubmit {
+    margin-top: 10px;
+    @include buttonStyle();
+    background-color: rgb(141, 252, 82);
+    padding: 10px 20px;
+    border-radius: 18px;
+}

@@ -1,5 +1,5 @@
 # rivieraEMP - Event Management Portal
-An Event Management Portal developed as part of the third round selection process hackathon for Motorq. The webapp is built using ReactJS, Express JS and MongoDB.
+An Event Management Portal developed as part of the third round selection process(hackathon) for Motorq. The webapp is built using ReactJS, Express JS and MongoDB.
 
 ## How to run? 
 1. For the frontend, run `npm i` at the top level directory to install the frontend dependencies
